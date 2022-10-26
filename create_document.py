@@ -187,9 +187,8 @@ def return_mas_doc(name_table,name_f):
 def main():
 	name_table = input("Введите полный путь к плану")
 	name_doc = input("Введите полный путь к шаблону")
-	name_f = input("Введите полный путь к файлу Word")
 	key = ['NAME','CODE','DEVELOP_GOAL','DEVELOP_REZULT','PLACE','LIGHTING_SEMES','ZE','K','L','C','P','LR',"CONTENT"]
-	for document in return_mas_doc(name_table,name_f):
+	for document in return_mas_doc(name_table):
 		doc = DocxTemplate(name_doc)
 		contex = {}
 		for i in range(len(document)):
@@ -199,6 +198,8 @@ def main():
 			doc.save("doc/"+document[0].replace('/','_').replace('*','_')+".docx")
 		else:
 			doc.save("doc/"+document[0].replace('/','_')+".docx")
+		
+
 
 	compose_doc.combine_all_docx("asd.docx",name_table.split('\\')[1].split(".plx")[0])
 if __name__ == '__main__':
